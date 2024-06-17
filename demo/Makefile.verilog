@@ -1,0 +1,6 @@
+sim:
+	iverilog -g2012 -o ./build/dsn counter.sv tb_counter.sv
+	vvp ./build/dsn
+
+
+
