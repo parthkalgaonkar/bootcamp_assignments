@@ -5,9 +5,8 @@ ifeq ($(SOLN), 1)
 	PREFIX = solution/
 endif
 
-VERILOG_SOURCES = ${PREFIX}nrzi_decode.sv
-TOPLEVEL = nrzi_decode
-MODULE = test_nrzi
+VERILOG_SOURCES = $(PREFIX)mem.sv
+TOPLEVEL = mem
+MODULE = test_mem
 WAVES = 1
-
 include $(shell cocotb-config --makefiles)/Makefile.sim

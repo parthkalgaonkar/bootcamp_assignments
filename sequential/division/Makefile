@@ -8,4 +8,5 @@ endif
 VERILOG_SOURCES = $(PREFIX)divider.sv
 TOPLEVEL = divider
 MODULE = test_divider
+WAVES = 1
 include $(shell cocotb-config --makefiles)/Makefile.sim
