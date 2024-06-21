@@ -12,11 +12,11 @@ def gen_test(BW,CW,N):
     if (2**CW < BW+CW+1) :
         raise(ValueError(f"Given Check bitwidth : {CW} not enough for datawidth : {BW}"))
     for i in range(N):
-        a.append(97)
+        a.append(randint(0,2**(BW+CW)-1))
 
     for i in range(N):
         bin_a = bin(a[i]).replace("0b","")
-        bin_a = bin_a.zfill(BW+CW-len(bin_a))
+        bin_a = bin_a.zfill(BW+CW)
         bin_corr = ''
         err_pos = 0
         # Find the error pos
@@ -26,7 +26,10 @@ def gen_test(BW,CW,N):
         #Correct the packet 
         if err_pos != 0:
             bin_update  = '1' if bin_a[-1*(err_pos)] == '0' else '0'
-            bin_a  = bin_a[:-1*(err_pos)] + bin_update + bin_a[-1*(err_pos-1):]
+            if err_pos == 1:
+                bin_a  = bin_a[:-1*(err_pos)] + bin_update
+            else:
+                bin_a  = bin_a[:-1*(err_pos)] + bin_update + bin_a[-1*(err_pos-1):]
         #Get the data bits
         k=1
         bin_res = [None]*BW
