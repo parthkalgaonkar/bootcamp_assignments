@@ -9,18 +9,18 @@ module adder
     output logic [DATA_WD:0]  o_sum
     );
 
-   always @(*)
-     begin
-        o_sum = {1'b0, i_a} + {1'b0, i_b};
-     end
+   always @(*) begin
+      o_sum = {1'b0, i_a} + {1'b0, i_b};
+   end
 
    /*
     Following section is necessary for dumping waveforms. This is needed for debug and simulations
     */
-`ifdef DUMP_WAVES
+
+`ifndef DISABLE_WAVES
    initial
      begin
-        $dumpfile("./adder.vcd");
+        $dumpfile("./sim_build/adder.vcd");
         $dumpvars(0, adder);
      end
 `endif

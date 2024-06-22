@@ -1,3 +1,4 @@
+
 `timescale 1ns/100ps
 module moving_average
   #(
@@ -40,10 +41,10 @@ module moving_average
           end
      end
 
-`ifdef DUMP_WAVES
+`ifndef DISABLE_WAVES
    initial
      begin
-        $dumpfile("./moving_average.vcd");
+        $dumpfile("./sim_build/moving_average.vcd");
         $dumpvars(0, moving_average);
      end
 `endif

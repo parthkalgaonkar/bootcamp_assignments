@@ -103,5 +103,18 @@ always @ (*) begin
     endcase
 end
 
+   /*
+    Following section is necessary for dumping waveforms. This is needed for debug and simulations
+    */
+
+`ifndef DISABLE_WAVES
+   initial
+     begin
+        $dumpfile("./sim_build/alu.vcd");
+        $dumpvars(0, alu);
+     end
+`endif
+
+
 endmodule
 
