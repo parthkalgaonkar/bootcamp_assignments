@@ -2,7 +2,6 @@ import cocotb
 from cocotb.triggers import Timer
 from random import randint
 from math import log
-import numpy as np
 
 
 def gen_test(BW,CW,N):

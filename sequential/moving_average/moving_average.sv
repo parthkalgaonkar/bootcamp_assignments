@@ -19,28 +19,23 @@ module moving_average
    logic signed [DATA_WD+1:0]         r_sum;
    integer                            ii;
 
-   always @(*)
-     begin
-        r_sum = r_data_dc[0] + r_data_dc[1] + r_data_dc[2] + r_data_dc[3];
-     end
+   always @(*) begin
+      r_sum = r_data_dc[0] + r_data_dc[1] + r_data_dc[2] + r_data_dc[3];
+   end
    
-   always @(posedge i_clk or negedge i_rstb)
-     begin
-        if (~i_rstb)
-          begin
-             for (ii = 0; ii < 4; ii++)
-               r_data_dc[ii] <= 'b0;
-             o_data <= 'b0;
-          end
-        else
-          begin
-             r_data_dc[0] <= i_data;
-             for (ii = 1; ii < 4; ii++)
-               r_data_dc[ii] <= r_data_dc[ii-1];
-             o_data <= r_sum[DATA_WD+1:2];
-          end
-     end
-
+   always @(posedge i_clk or negedge i_rstb) begin
+        if (~i_rstb) begin
+           for (ii = 0; ii < 4; ii++)
+             r_data_dc[ii] <= 'b0;
+           o_data <= 'b0;
+        end else begin
+           r_data_dc[0] <= i_data;
+           for (ii = 1; ii < 4; ii++)
+             r_data_dc[ii] <= r_data_dc[ii-1];
+           o_data <= r_sum[DATA_WD+1:2];
+        end
+   end
+   
 `ifndef DISABLE_WAVES
    initial
      begin
