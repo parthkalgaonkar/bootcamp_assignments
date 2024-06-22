@@ -1,6 +1,7 @@
 SIM = icarus
 TOPLEVEL_LANG = verilog
 
+
 ifeq ($(SOLN), 1)
 	PREFIX = solution/
 endif
@@ -18,3 +19,5 @@ MODULE = test_$(top)
 WAVES=1
 COMPILE_ARGS = -DDUMP_WAVES
 include $(shell cocotb-config --makefiles)/Makefile.sim
+
+.PHONY: ${SIM_BUILD}/sim.vvp ${SIM_BUILD}/cocotb_iverilog_dump.v

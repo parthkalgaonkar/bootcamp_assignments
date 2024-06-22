@@ -3,29 +3,29 @@ from cocotb.triggers import Timer
 from random import randint
 
 def posRedundantBits(data, r):
-	j = 0
-	k = 1
-	m = len(data)
-	res = ''
-	for i in range(1, m + r+1):
-		if(i == 2**j):
-			res = res + '0'
-			j += 1
-		else:
-			res = res + data[-1 * k]
-			k += 1
-	return res
+    j = 0
+    k = 1
+    m = len(data)
+    res = ''
+    for i in range(1, m + r+1):
+        if(i == 2**j):
+            res = res + '0'
+            j += 1
+        else:
+            res = res + data[-1 * k]
+            k += 1
+    return res[::-1]
 
 
 def calcParityBits(arr, r):
-	n = len(arr)
-	for i in range(r):
-		val = 0
-		for j in range(1, n + 1):
-			if(j & (2**i) == (2**i)):
-				val = val ^ int(arr[-1 * j])
-		arr = arr[:n-(2**i)] + str(val) + arr[n-(2**i)+1:]
-	return arr
+    n = len(arr)
+    for i in range(r):
+        val = 0
+        for j in range(1, n + 1):
+            if(j & (2**i) == (2**i)):
+                val = val ^ int(arr[-1 * j])
+        arr = arr[:n-(2**i)] + str(val) + arr[n-(2**i)+1:]
+    return arr
 
 
 
