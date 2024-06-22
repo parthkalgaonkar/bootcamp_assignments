@@ -12,3 +12,5 @@ endif
 TOPLEVEL = $(top)
 MODULE = test_$(top)
 include $(shell cocotb-config --makefiles)/Makefile.sim
+
+.PHONY: ${SIM_BUILD}/sim.vvp ${SIM_BUILD}/cocotb_iverilog_dump.v
