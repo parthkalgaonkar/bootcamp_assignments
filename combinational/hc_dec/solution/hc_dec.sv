@@ -21,7 +21,7 @@ module hc_dec#(
             end
         end
         err_pos = chk_bits_cmp;
-        corr_packet = o_err_flag ? (i_enc_data ^ (1 << err_pos)) : i_enc_data;
+        corr_packet = o_err_flag ? (i_enc_data ^ (1 << (err_pos-1))) : i_enc_data;
         k=0;
         o_dec_data = {(DATA_WD){1'b0}};
         for (int i=1;i<=DATA_WD+CHK_WD;i++) begin

@@ -8,5 +8,6 @@ endif
 VERILOG_SOURCES = $(PREFIX)$(top).sv 
 TOPLEVEL = $(top)
 MODULE = test_$(top)
+WAVES=1
 COMPILE_ARGS = -DDUMP_WAVES
 include $(shell cocotb-config --makefiles)/Makefile.sim

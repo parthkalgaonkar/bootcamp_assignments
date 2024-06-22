@@ -4,4 +4,5 @@ VERILOG_SOURCES = adder.sv
 TOPLEVEL = adder
 MODULE = test_adder
 COMPILE_ARGS = -DDUMP_WAVES
+WAVES=1
 include $(shell cocotb-config --makefiles)/Makefile.sim
