@@ -8,7 +8,7 @@ def posRedundantBits(data, r):
 	m = len(data)
 	res = ''
 	for i in range(1, m + r+1):
-		if(i == 2**j):
+                if(i == 2**j):
 			res = res + '0'
 			j += 1
 		else:

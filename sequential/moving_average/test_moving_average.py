@@ -20,7 +20,7 @@ async def reset(dut):
     return
 
 @cocotb.test()
-async def test_adder(dut):
+async def test_moving_average(dut):
     [data_in, data_out] = gen_test(dut.DATA_WD.value)
     dut.i_data.value = 0
     cocotb.start_soon(Clock(dut.i_clk, 1, units = "ns").start())

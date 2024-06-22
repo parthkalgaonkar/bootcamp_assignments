@@ -26,7 +26,7 @@ def gen_test(BW,N):
 
 
 @cocotb.test()
-async   def test_prog_add_sub(dut):
+async def test_prog_add_sub(dut):
     N = 4
     [a,b,mode,res_ovr,res] = gen_test(dut.DATA_WD.value,N)
     for i in range(N):
