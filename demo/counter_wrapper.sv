@@ -26,7 +26,7 @@ module counter_wrapper
 
    initial
      begin
-        $dumpfile("./results/counter_cocotb.vcd");
+        $dumpfile("./counter_cocotb.vcd");
         $dumpvars(0, counter_wrapper);
      end
 

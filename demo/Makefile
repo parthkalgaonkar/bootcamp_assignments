@@ -5,5 +5,6 @@ cocotb_sim:
 	make -f Makefile.cocotb
 
 clean:
-	rm -rf ./build/*
-	rm -rf ./results/*
+	rm -rf ./sim_build/*
+	rm -rf *.vcd
+	rm -rf dsn

@@ -1,8 +1,6 @@
 SIM = icarus
 TOPLEVEL_LANG = verilog
 VERILOG_SOURCES = counter.sv counter_wrapper.sv
-COCOTB_RESULTS_FILE = ./results/results.xml
-SIM_BUILD = ./build
 TOPLEVEL = counter_wrapper
 MODULE = test_counter
 include $(shell cocotb-config --makefiles)/Makefile.sim

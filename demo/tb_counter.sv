@@ -26,7 +26,7 @@ module tb_counter;
    initial
      begin
         // Code to Dump the waveforms
-        $dumpfile("./results/counter_ivlog.vcd");
+        $dumpfile("./counter_ivlog.vcd");
         $dumpvars(0, tb_counter);
         // Module Input Initialization
         i_clk          = 1'b0;
